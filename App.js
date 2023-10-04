@@ -1,20 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
+import { useState } from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import AndraVyn from './AndraVyn';
+import StartVy from './StartVy';
 
 export default function App() {
+
+  const Stack = createNativeStackNavigator();
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='StartVy' component={StartVy} />
+
+        <Stack.Screen name='AndraVyn' component={AndraVyn} />
+
+      </Stack.Navigator>
+    </NavigationContainer>
+
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
